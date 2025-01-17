@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:08:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/17 17:15:47 by rhvidste         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:49:13 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,4 @@ int	main(int argc, char **argv, char **envp)
 	}
 	else
 		write(2, "wrong number of variables\n", 27);
-		//ft_error(argv[0], false);
 }
