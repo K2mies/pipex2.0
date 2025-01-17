@@ -37,7 +37,6 @@ start:
 						make all
 
 $(LIBFT):
-						#make -C ./libft
 						make -C ./ft_printf
 
 
