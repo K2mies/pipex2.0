@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 09:35:13 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/17 15:51:36 by rhvidste         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:11:03 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdbool.h>
 # include <errno.h>
 
-#include "../ft_printf/include/libft.h"
+# include "../ft_printf/include/libft.h"
 
 //Error----------------------
 void	ft_error(char *argv, bool flag);

@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:02:10 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/17 15:48:26 by rhvidste         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:15:45 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,29 @@ void	ft_error(char *argv, bool flag)
 {
 	if (flag == true)
 	{
-		//write(2, "1\n", 2);
-		//ft_printf("pipex :");
-		write(2, "pipex: ", 8);
-		//write(2, argv, ft_strlen(argv));
-		if (errno != ENOENT)
-		        errno = ENOENT;  // Force "No such file or directory" error
+		//write(2, "pipex: ", 8);
+		//if (errno != ENOENT)
+		//	errno = ENOENT;
 		write(2, "pipex: ", 8);
 		perror(argv);
-		//write(2, ": Is a directory\n", 15);
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		//write(2, "2\n", 2);
 		perror("error");
 		exit(EXIT_FAILURE);
 	}
+}
+
+void	free_array(char **arr)
+{
+	int	i;
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i++]);
+	}
+	free(arr);
 }
 
 char	*path_parsing(char *command, char **envp)
@@ -56,6 +62,9 @@ char	*path_parsing(char *command, char **envp)
 			return (fullpath);
 		i++;
 	}
+	free_array(mypaths);
+	//write(2, "Command not found", 17);
+	//exit(1);
 	return (0);
 }
 
@@ -65,10 +74,17 @@ void	cmd_exec(char *argv, char **envp)
 	char	*path;
 
 	command = ft_split(argv, ' ');
-	path = path_parsing(command[0], envp);
+	if (ft_strchr(command[0], '/'))
+	{
+		path = command[0];
+	}
+	else
+	{
+		path = path_parsing(command[0], envp);
+	}
 	if (execve(path, command, envp) == -1)
 	{
-		//write(2, "exec fail\n", 10);
+		free_array(command);
 		ft_error(argv, true);
 	}
 }
