@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 09:35:13 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/20 13:42:55 by rhvidste         ###   ########.fr       */
+/*   Created: 2024/11/19 15:44:33 by rhvidste          #+#    #+#             */
+/*   Updated: 2025/01/20 11:05:31 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <fcntl.h>
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <sys/wait.h>
-# include <stdbool.h>
-# include <errno.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-# include "../libft/libft.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
-//Error----------------------
-void	ft_error(char *argv, bool flag);
-//parsing-------------------
-void	cmd_exec(char *argv, char **envp);
+//char	*ft_strchr(const char *s, int c);
+//char	*ft_strdup(const char *s);
+//char	*ft_substr(const char *s, unsigned int start, size_t len);
+//char	*ft_strjoin(const char *s1, const char *s2);
+//size_t	ft_strlen(const char *str);
+
+char	*get_next_line(int fd);
 
 #endif

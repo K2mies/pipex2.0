@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:29:05 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/17 16:11:21 by rhvidste         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:51:17 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 int		ft_printf(const char *format, ...);
-
+char	*get_next_line(int fd);
 #endif

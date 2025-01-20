@@ -6,7 +6,7 @@
 #    By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 16:11:34 by rhvidste          #+#    #+#              #
-#    Updated: 2025/01/08 10:40:29 by rhvidste         ###   ########.fr        #
+#    Updated: 2025/01/20 11:03:26 by rhvidste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -g -I.
+CFLAGS = -Werror -Wextra -Wall -I.
 
 SRC =	ft_isalpha.c \
 		ft_isdigit.c \
@@ -49,7 +49,16 @@ SRC =	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+		ft_printstr.c \
+		ft_printptr.c \
+		ft_printchar.c \
+		ft_printnbr.c \
+		ft_printunsigned.c \
+		ft_print_hex.c \
+		ft_printpercent.c\
+		ft_printf.c \
+		get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
