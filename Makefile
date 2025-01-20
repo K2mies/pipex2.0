@@ -14,7 +14,7 @@ NAME					= pipex
 
 # Directories----------------------------------------
 
-LIBFT					= ./ft_printf/libftprintf.a
+LIBFT					= ./libft/libft.a
 INC						= include/
 SRC_DIR					= src/
 OBJ_DIR					= obj/
@@ -37,7 +37,7 @@ start:
 						make all
 
 $(LIBFT):
-						make -C ./ft_printf
+						make -C ./libft
 
 
 all:					$(NAME)
@@ -52,12 +52,12 @@ $(OBJ_DIR)%.o:			$(SRC_DIR)%.c
 #Clean----------------------------------------------------------------------------
 clean:
 								$(RM) -r $(OBJ_DIR)
-								make clean -C ./ft_printf
+								make clean -C ./libft
 
 fclean:					clean
 								$(RM) $(NAME)
 								$(RM) $(LIBFT)
-								@echo "$(CYAN)push_swap executable files cleaned!$(DEF_COLOR)"
+								@echo "$(CYAN)pipex executable files cleaned!$(DEF_COLOR)"
 								@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
 
 re:						fclean all

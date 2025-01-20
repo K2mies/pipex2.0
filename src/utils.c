@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:02:10 by rhvidste          #+#    #+#             */
-/*   Updated: 2025/01/17 17:49:33 by rhvidste         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:34:57 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_error(char *argv, bool flag)
 	if (flag == true)
 	{
 		write(2, "pipex: ", 8);
+		errno = EISDIR;
 		perror(argv);
 		exit(EXIT_FAILURE);
 	}
@@ -71,7 +72,15 @@ void	cmd_exec(char *argv, char **envp)
 	if (ft_strchr(command[0], '/'))
 		path = command[0];
 	else
+	{
 		path = path_parsing(command[0], envp);
+		if (access(path, X_OK) != 0) 
+		{
+			write(2, "command not found\n", 20);
+			free_array(command);
+			exit(EXIT_FAILURE);
+		}
+	}
 	if (execve(path, command, envp) == -1)
 	{
 		free_array(command);
